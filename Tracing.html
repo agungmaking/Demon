@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web AR Image Tracking</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
+<body style="margin: 0px; overflow: hidden;">
+    
+    <div style="position: absolute; top: 10px; left: 10px; width: 100%; text-align: center; z-index: 1; color: white; font-family: sans-serif;">
+        Tunggu Sebentar ....
+    </div>
+
+    <a-scene 
+        vr-mode-ui="enabled: false;"
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
+        embedded 
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+        
+        <a-nft
+            type="nft"
+            url="./marker/demon"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance="0.01"
+            smoothThreshold="5">
+            
+            <a-entity
+                gltf-model="./Asset/succubus-1.glb"
+                scale="1 1 1"
+                position="0 0 0"
+                rotation="0 0 0">
+            </a-entity>
+
+        </a-nft>
+        
+        <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+</html>
