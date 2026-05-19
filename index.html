@@ -1,58 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Demon AR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web AR NFT</title>
 
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 
+    <!-- AR.js NFT -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
 
-<body style="margin:0; overflow:hidden;">
+<body style="margin: 0; overflow: hidden;">
 
+    <!-- Loading Text -->
     <div style="
-        position:absolute;
-        top:10px;
-        width:100%;
-        text-align:center;
-        color:white;
-        z-index:10;
-        font-size:20px;
-        font-family:sans-serif;">
-        Arahkan Kamera ke Kartu Demon
+        position: absolute;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-family: Arial, sans-serif;
+        z-index: 10;
+    ">
+        Loading descriptor, please wait...
     </div>
 
+    <!-- AR Scene -->
     <a-scene
         embedded
-        vr-mode-ui="enabled:false"
-        renderer="logarithmicDepthBuffer:true;"
+        vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
         arjs="trackingMethod: best;
                 sourceType: webcam;
                 debugUIEnabled: false;">
 
+        <!-- NFT Marker -->
         <a-nft
             type="nft"
-            url="./nft/demon"
+            url="./assets/nft/supra"
             smooth="true"
             smoothCount="10"
             smoothTolerance="0.01"
-            smoothThreshold="5"
-            emitevents="true">
+            smoothThreshold="5">
 
+            <!-- 3D Model -->
             <a-entity
-                gltf-model="./model/succubus-1.glb"
-
-                scale="15 15 15"
-
-                position="0 -50 0"
-
-                rotation="-90 0 0">
-
+                gltf-model="asset/model"
+                scale="50 50 50"
+                position="50 10 -20"
+                rotation="0 0 0">
             </a-entity>
 
         </a-nft>
 
+        <!-- Camera -->
         <a-entity camera></a-entity>
 
     </a-scene>
